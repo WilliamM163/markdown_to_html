@@ -1,6 +1,6 @@
 const fs = require('node:fs')
 
-class Read {
+class FILE {
     /**
      * Constructor
      * @param {string} inputFile 
@@ -36,4 +36,4 @@ class Read {
     }
 }
 
-module.exports = Read
+module.exports = FILE

@@ -1,5 +1,5 @@
-const Read = require('./readfile')
-const { convert } = require('./convert')
+const FILE = require('./readfile')
+const { parse } = require('./parsing/parse')
 
 function main() {
     const commandLineArguements = process.argv
@@ -11,12 +11,12 @@ function main() {
     const input_file = commandLineArguements[2]
     const output_file = commandLineArguements[3]
 
-    const file = new Read(input_file)
+    const file = new FILE(input_file)
     
     // Main Loop
     for (let line of file) {
-        line = convert(line)
-        console.log(line)
+        const HTML = parse(line)
+        console.log(HTML)
     }
 }
 

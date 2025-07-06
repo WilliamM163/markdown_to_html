@@ -9,56 +9,6 @@ const ASTERISK_MAP = {
 };
 
 /**
- * A map of headings
- */
-const HEADINGS = {
-    "#": ["<h1>", "</h1>"],
-    "##": ["<h2>", "</h2>"],
-    "###": ["<h3>", "</h3>"],
-    "####": ["<h4>", "</h4>"],
-    "#####": ["<h5>", "</h5>"],
-    "######": ["<h6>", "</h6>"],
-  };
-
-/**
- * Converts a single line of Markdown into its HTML equivalent.
- * @param {string} markdownLine
- * @returns {string} - The converted HTML line.
- */
-function convert(markdownLine) {
-  // Handle empty lines first as a simple edge case.
-  if (markdownLine === "") {
-    return "";
-  }
-
-  // Step 1: Handle block-level elements (headings and paragraphs).
-  let htmlLine = parseBlockElement(markdownLine)
-  // Step 2: Handle inline elements on the resulting line.
-  htmlLine = parseInlineAsterisks(htmlLine)
-  // The function should return the final result.
-  return htmlLine
-}
-
-/**
- * Parses block-level elements like headings and paragraphs.
- * @param {string} line
- * @returns {string}
- */
-function parseBlockElement(line) {
-  const [startingWord] = line.split(" ", 1)
-  const element = HEADINGS[startingWord]
-
-  if (element) {
-    // Get content after the first space.
-    const content = line.substring(startingWord.length + 1).trim()
-    return element[0] + content + element[1]
-  }
-
-  // If it's not a heading, it's a paragraph.
-  return "<p>" + line + "</p>"
-}
-
-/**
  * Converts markdown bold/italic syntax into HTML tags using a stack.
  * @param {string} line
  * @returns {string} - The line with HTML tags.
@@ -122,4 +72,4 @@ function countConsecutiveChars(str, target) {
   return count
 }
 
-module.exports = { convert }
+module.exports = { parseInlineAsterisks }
