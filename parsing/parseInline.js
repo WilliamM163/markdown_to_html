@@ -56,7 +56,6 @@ function parseInlineElements(line) {
         const match = line.match(rule.pattern)
         if (match !== null) {
             HTML = rule.render(match)
-            break
         }
     }
 

@@ -8,6 +8,11 @@ This is to make it easier to write stylized static HTML for my blog.
 3. Installation
 4. Project Structure
 
+## ISSUES
+- Still in development
+- Blocking logic needs fixing -> because alot of p elements are produced
+- Need to include statemachine as we need to deal with multi block logic, which is lists, and code blocks
+
 ## Key Features
 - Outputs to single HTML file
 
